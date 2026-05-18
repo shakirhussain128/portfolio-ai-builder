@@ -1,0 +1,287 @@
+Ye lo **FINAL MASTER PROMPT** (copy paste) jo aapko **Replit + Claude style AI Portfolio Builder SaaS** ka full production-level code banwa dega. ✅
+Is prompt ko aap ChatGPT / Claude / Cursor / Replit AI me paste karo.
+
+---
+
+# ✅ FINAL MASTER PROMPT (Production SaaS Prompt)
+
+**PROMPT:**
+
+You are a senior full-stack SaaS engineer.
+
+Build a complete production-ready AI web application named **PortFolioGen AI** (AI Portfolio Website Builder) similar to Replit AI and Claude Artifacts.
+
+---
+
+## 🎯 Main Goal
+
+Users will type a prompt like:
+
+> “Create a modern portfolio website for a web developer. Dark theme. Sections: About, Skills, Projects, Education, Contact. Add animations and responsive layout.”
+
+The app must generate a complete working portfolio website and display it live.
+
+---
+
+# ✅ MUST HAVE FEATURES
+
+## 1) Prompt to Website Generator
+
+* Input prompt box
+* Generate button
+* Calls OpenAI API (or mock if no key)
+* AI generates website files:
+
+  * `index.html`
+  * `style.css`
+  * `script.js`
+
+AI output MUST be strict JSON:
+
+```json
+{
+  "index.html": "...",
+  "style.css": "...",
+  "script.js": "..."
+}
+```
+
+---
+
+## 2) Replit-Style Code Editor
+
+* Use **Monaco Editor**
+* 3 tabs: HTML / CSS / JS
+* Editable code
+* Auto save to state
+
+---
+
+## 3) Live Preview
+
+* Right side preview panel
+* Use iframe to show output
+* Must update preview instantly when code changes
+
+---
+
+## 4) Export & Download
+
+* Download button generates ZIP file
+* ZIP includes:
+
+  * index.html
+  * style.css
+  * script.js
+* Use JSZip
+
+---
+
+## 5) Save Projects (Database)
+
+Users can save generated portfolios:
+
+* prompt
+* generated code
+* createdAt timestamp
+
+Use database:
+
+* MongoDB (Mongoose)
+
+---
+
+## 6) Authentication System
+
+* Signup/Login system
+* Email + password
+* JWT auth
+* Secure routes
+* Dashboard access only for logged-in users
+
+---
+
+## 7) Dashboard Page
+
+* List all saved portfolio projects
+* Buttons:
+
+  * Open/Edit
+  * Delete
+  * Duplicate
+
+---
+
+# 🎨 UI / UX REQUIREMENTS (Professional)
+
+* Premium modern design
+* Dark theme
+* Smooth animations using Framer Motion
+* Layout like Replit:
+
+Left Panel:
+
+* Prompt input
+* Generate button
+* Editor Tabs (HTML/CSS/JS)
+
+Right Panel:
+
+* Live Preview
+
+Top Navbar:
+
+* App Logo
+* Dashboard link
+* Logout button
+
+Use:
+
+* Tailwind CSS
+* ShadCN UI components
+
+---
+
+# ⚙️ TECH STACK REQUIREMENTS
+
+Frontend + Backend:
+
+* **Next.js 14 App Router**
+* Tailwind CSS
+* ShadCN UI
+* Monaco Editor
+* Framer Motion
+* JSZip
+
+Backend:
+
+* Next.js API routes
+* MongoDB + Mongoose
+* JWT Authentication
+* Password hashing using bcrypt
+
+AI Integration:
+
+* OpenAI API (GPT model)
+
+---
+
+# 🧠 AI GENERATION RULES
+
+The generated portfolio website must be:
+
+* responsive
+* modern
+* professional
+* fully working
+* no missing files
+* no broken HTML/CSS/JS
+
+The portfolio must contain:
+
+* hero section
+* about section
+* skills section with cards
+* projects section with project cards
+* education section
+* contact form (frontend only)
+* footer
+
+Animations:
+
+* smooth fade-in
+* hover effects
+* smooth scroll
+
+---
+
+# 🛡️ SECURITY & VALIDATION
+
+* Sanitize AI output
+* Validate JSON response
+* Handle invalid AI response gracefully
+* Add loading spinner + error messages
+
+---
+
+# 📁 PROJECT STRUCTURE REQUIRED
+
+Provide full code with this structure:
+
+```
+portfolio-ai-builder/
+  app/
+    page.tsx
+    dashboard/page.tsx
+    login/page.tsx
+    signup/page.tsx
+    api/
+      auth/
+      generate/
+      projects/
+  components/
+  lib/
+  models/
+  middleware/
+  styles/
+  .env.example
+  package.json
+  README.md
+```
+
+---
+
+# 🚀 DEPLOYMENT REQUIREMENTS
+
+Provide step-by-step guide for deployment:
+
+* Local setup instructions
+* MongoDB Atlas setup
+* Environment variables:
+
+  * OPENAI_API_KEY
+  * MONGODB_URI
+  * JWT_SECRET
+* Deploy on Vercel
+* Deploy MongoDB on Atlas
+
+---
+
+# 🧾 FINAL OUTPUT REQUIREMENTS
+
+1. Provide complete working code for all files.
+2. Code must run without errors.
+3. Provide README.md with full setup instructions.
+4. Add professional comments and clean formatting.
+5. Ensure all imports are correct.
+
+Now generate the full production-ready application code.
+
+---
+
+# ✅ EXTRA BEST VERSION (OPTIONAL BUT RECOMMENDED)
+
+Add template system:
+
+* templates/dark
+* templates/minimal
+* templates/creative
+  AI chooses template based on user prompt and customizes it.
+
+---
+
+**END PROMPT**
+
+---
+
+## 🔥 Ye Prompt Use Kaise Karna Hai?
+
+1. Isko copy karo
+2. ChatGPT / Claude / Cursor / Replit AI me paste karo
+3. Output me full code ayega
+4. GitHub repo banao
+5. Deploy on Vercel
+
+---
+
+Agar aap chaho to main **aapke liye is prompt ka "Short 1-click version"** bhi bana dun jo 10x fast code generate kare.
