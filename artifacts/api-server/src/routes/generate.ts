@@ -51,8 +51,9 @@ router.post("/generate", async (req, res): Promise<void> => {
   const userMessage = `${prompt}${templateHint ? `\n\nTemplate style: ${templateHint}` : ""}`;
 
   const completion = await openai.chat.completions.create({
-    model: "gpt-5.1",
-    max_completion_tokens: 8192,
+    model: "gpt-4o",
+    max_tokens: 8192,
+    response_format: { type: "json_object" },
     messages: [
       { role: "system", content: SYSTEM_PROMPT },
       { role: "user", content: userMessage },
@@ -63,6 +64,7 @@ router.post("/generate", async (req, res): Promise<void> => {
 
   let parsed2: { html?: string; css?: string; js?: string };
   try {
+    // Strip any markdown fences just in case
     const jsonStr = raw
       .replace(/^```json\s*/i, "")
       .replace(/^```\s*/i, "")
@@ -70,9 +72,21 @@ router.post("/generate", async (req, res): Promise<void> => {
       .trim();
     parsed2 = JSON.parse(jsonStr);
   } catch {
-    req.log.error({ raw }, "Failed to parse AI response as JSON");
-    res.status(500).json({ error: "AI returned an invalid response. Please try again." });
-    return;
+    // Last resort: find the first { ... } block
+    const match = raw.match(/\{[\s\S]*\}/);
+    if (match) {
+      try {
+        parsed2 = JSON.parse(match[0]);
+      } catch {
+        req.log.error({ raw: raw.slice(0, 500) }, "Failed to parse AI response as JSON");
+        res.status(500).json({ error: "AI returned an invalid response. Please try again." });
+        return;
+      }
+    } else {
+      req.log.error({ raw: raw.slice(0, 500) }, "Failed to parse AI response as JSON");
+      res.status(500).json({ error: "AI returned an invalid response. Please try again." });
+      return;
+    }
   }
 
   if (!parsed2.html || !parsed2.css || !parsed2.js) {
